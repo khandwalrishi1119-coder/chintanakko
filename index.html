@@ -1,1 +1,308 @@
-<!-- HTML here -->
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>चिंतानक्को – बोदवडची कामे</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#14213d; --paper:#f6f7fa; --card:#ffffff; --line:#d9dce5;
+  --haldi:#f2b705; --on-haldi:#14213d; --wa:#17893f; --on-wa:#ffffff;
+  --muted:#4b5470; --warn-bg:#fdeee9; --warn-ink:#8a2a14;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#eef0f6; --paper:#0f1626; --card:#18213a; --line:#2c3757;
+    --wa:#2fb862; --on-wa:#06210f; --muted:#aab2cc; --warn-bg:#3a1d16; --warn-ink:#ffc9b9;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#eef0f6; --paper:#0f1626; --card:#18213a; --line:#2c3757;
+  --wa:#2fb862; --on-wa:#06210f; --muted:#aab2cc; --warn-bg:#3a1d16; --warn-ink:#ffc9b9;
+  color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Mukta","Noto Sans Devanagari","Nirmala UI",system-ui,sans-serif;font-size:19px;line-height:1.55}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--haldi);outline-offset:3px}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+.emo{font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif;font-style:normal}
+
+.topbar{background:var(--ink);color:var(--paper);text-align:center;padding:9px 14px;font-size:16px;font-weight:600}
+.topbar a{color:var(--haldi);font-weight:800}
+
+.sign{background:var(--haldi);color:var(--on-haldi);padding:26px 0 34px;border-bottom:6px solid var(--on-haldi)}
+.brand{font-weight:800;font-size:22px;margin:0 0 18px}
+.brand span{font-weight:400;font-size:16px;opacity:.85;margin-left:8px}
+h1{font-size:clamp(40px,10vw,72px);line-height:1.08;font-weight:800;margin:0 0 12px;letter-spacing:-.5px}
+.trio{display:flex;align-items:center;gap:10px;font-size:46px;margin:6px 0 16px}
+.trio i{flex:0 0 36px;border-top:4px dotted var(--on-haldi);opacity:.6}
+.sub{font-size:21px;max-width:34ch;margin:0 0 24px}
+.cta{display:grid;grid-template-columns:1fr;gap:12px;max-width:560px}
+@media(min-width:560px){.cta{grid-template-columns:1fr 1fr}}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:60px;padding:12px 18px;border-radius:12px;font:inherit;font-weight:800;font-size:22px;text-decoration:none;border:3px solid var(--on-haldi);cursor:pointer}
+.btn-a{background:var(--on-haldi);color:#fff}
+.btn-b{background:#fff;color:var(--on-haldi)}
+.hint{margin:14px 0 0;font-size:17px}
+
+section{padding:34px 0 6px}
+h2{font-size:30px;font-weight:800;margin:0 0 6px}
+.lead{color:var(--muted);margin:0 0 16px;font-size:17px}
+
+.bnr-wrap{padding-top:26px}
+.bnr{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:14px}
+.bnr::-webkit-scrollbar{display:none}
+.slide{flex:0 0 100%;scroll-snap-align:start;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:20px 22px;border-radius:14px;color:#fff;min-height:150px;border:2px solid var(--line)}
+.b1{background:#14213d}.b2{background:#17893f}.b3{background:#b3361f}.b4{background:#5b3a8e}
+.slide h3{margin:0 0 4px;font-size:25px;font-weight:800;line-height:1.2}
+.slide p{margin:0 0 12px;font-size:17px}
+.go{display:inline-flex;align-items:center;min-height:44px;background:#fff;color:#14213d;font-weight:800;padding:6px 16px;border-radius:10px;text-decoration:none}
+.big{font-size:64px;line-height:1}
+@media(max-width:480px){.big{font-size:48px}}
+.dots{display:flex;justify-content:center;margin-top:6px}
+.dot{width:14px;height:14px;margin:6px;border-radius:50%;border:2px solid var(--ink);background:transparent;padding:0;cursor:pointer}
+.dot[aria-current="true"]{background:var(--ink)}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}
+.chip{font:inherit;font-weight:600;font-size:17px;padding:8px 16px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;min-height:44px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.sample-note{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 14px;margin:0 0 14px;font-size:16px}
+.jobs{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.job{display:grid;grid-template-columns:auto 1fr;gap:4px 14px;background:var(--card);border:2px solid var(--line);border-radius:12px;padding:16px 18px}
+.job .ic{font-size:36px;grid-row:span 3;line-height:1.1}
+.job h3{margin:0;font-size:23px;font-weight:800}
+.where{color:var(--muted);margin:0;font-size:17px}
+.kind{font-size:15px;font-weight:600;background:var(--haldi);color:var(--on-haldi);padding:1px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.tag{font-size:14px;font-weight:600;background:var(--warn-bg);color:var(--warn-ink);padding:1px 8px;border-radius:6px;margin-left:8px;vertical-align:middle}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.act{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:8px 18px;border-radius:10px;font-weight:800;font-size:18px;text-decoration:none;border:2px solid var(--ink)}
+.act-wa{background:var(--wa);border-color:var(--wa);color:var(--on-wa)}
+.empty{background:var(--card);border:2px dashed var(--line);border-radius:12px;padding:22px;text-align:center}
+.empty .btn{margin:14px auto 0;max-width:340px}
+
+.steps{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+@media(min-width:700px){.steps{grid-template-columns:repeat(3,1fr)}}
+.steps li{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:16px 18px}
+.steps .e{font-size:38px;display:block;line-height:1.2}
+.steps b{display:block;font-size:21px}
+
+.two{display:grid;gap:12px}
+@media(min-width:700px){.two{grid-template-columns:1fr 1fr}}
+.box{background:var(--card);border:2px solid var(--line);border-radius:12px;padding:16px 18px}
+.box .e{font-size:34px;display:block;line-height:1.2}
+.box h3{margin:0 0 4px;font-size:21px}
+.box p{margin:0}
+
+footer{margin-top:40px;padding:24px 0 34px;border-top:6px solid var(--haldi);color:var(--muted);font-size:16px}
+footer b{color:var(--ink)}
+</style>
+</head>
+<body>
+
+<div class="topbar">दिवाळी आणि लग्नसराईसाठी तात्पुरती माणसे हवीत? <a href="#" data-post>आजच कळवा</a></div>
+
+<header class="sign">
+  <div class="wrap">
+    <p class="brand">चिंतानक्को <span>बोदवड</span></p>
+    <h1>काम हवे?<br>माणूस हवा?</h1>
+    <div class="trio emo" role="img" aria-label="दुकान, हस्तांदोलन, कामगार"><span>🏪</span><i></i><span>🤝</span><i></i><span>👷</span></div>
+    <p class="sub">व्हॉट्सॲपवर लिहा. बोदवडमधील काम आणि कामगार आम्ही एकमेकांना भेटवतो.</p>
+    <div class="cta">
+      <a class="btn btn-a" id="needWork" href="#">मला काम हवे</a>
+      <a class="btn btn-b" id="needWorker" href="#">मला माणूस हवा</a>
+    </div>
+    <p class="hint"><span class="emo" aria-hidden="true">🎙️</span> लिहायला जमत नाही? व्हॉइस नोट पाठवा. मराठीत बोला.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="bnr-wrap" aria-label="सूचना">
+    <div class="bnr" id="bnr" tabindex="0" role="region" aria-roledescription="carousel" aria-label="सूचना"></div>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <section id="jobs" aria-labelledby="jobsTitle">
+    <h2 id="jobsTitle">आजची कामे</h2>
+    <p class="lead">काम निवडा आणि थेट बोला.</p>
+    <div class="chips" id="chips" role="group" aria-label="कामाचा प्रकार">
+      <button class="chip" data-f="all" aria-pressed="true">सर्व</button>
+      <button class="chip" data-f="daily" aria-pressed="false">रोजंदारी</button>
+      <button class="chip" data-f="monthly" aria-pressed="false">महिन्याचे काम</button>
+      <button class="chip" data-f="skilled" aria-pressed="false">कुशल काम</button>
+    </div>
+    <div id="sampleNote" class="sample-note" hidden>ही कामे नमुना आहेत. खरी कामे लवकरच येथे दिसतील.</div>
+    <ul class="jobs" id="jobList"></ul>
+    <div class="empty" id="empty" hidden>
+      <b>या प्रकारात सध्या काम नाही.</b><br>तुमच्या दुकानाचे काम इथे टाका.
+      <a class="btn btn-a" href="#" data-post>मला माणूस हवा</a>
+    </div>
+  </section>
+
+  <section aria-labelledby="howTitle">
+    <h2 id="howTitle">कसे चालते</h2>
+    <ol class="steps">
+      <li><span class="e emo" aria-hidden="true">💬</span><b>संदेश पाठवा</b>लिहा किंवा व्हॉइस नोट पाठवा: काम, भाग, फोन.</li>
+      <li><span class="e emo" aria-hidden="true">📝</span><b>आम्ही नोंद करतो</b>तुमचे काम किंवा तुमची माहिती आम्ही यादीत टाकतो.</li>
+      <li><span class="e emo" aria-hidden="true">📞</span><b>थेट बोला</b>दुकानदार आणि कामगार एकमेकांना फोन करतात.</li>
+    </ol>
+  </section>
+
+  <section aria-labelledby="fairTitle">
+    <h2 id="fairTitle">आमचे वचन</h2>
+    <div class="two">
+      <div class="box"><span class="e emo" aria-hidden="true">🙌</span><h3>कामगारांसाठी मोफत</h3><p>काम शोधण्यासाठी कोणतीही फी नाही.</p></div>
+      <div class="box"><span class="e emo" aria-hidden="true">🏪</span><h3>दुकानदारांसाठी सुरुवातीला मोफत</h3><p>पहिल्या काही नेमणुका मोफत.</p></div>
+      <div class="box"><span class="e emo" aria-hidden="true">🛡️</span><h3>खात्री करून जा</h3><p>कामावर जाण्यापूर्वी दुकानाची खात्री करा. काही अडचण आली तर आम्हाला व्हॉट्सॲपवर कळवा.</p></div>
+      <div class="box"><span class="e emo" aria-hidden="true">🤝</span><h3>आम्ही फक्त जुळवतो</h3><p>अटी दुकानदार आणि कामगार ठरवतात. आम्ही कंत्राटदार नाही.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <b>चिंतानक्को</b>: चिंता करू नका, काम होईल.<br>
+    बोदवड, जि. जळगाव, महाराष्ट्र
+  </div>
+</footer>
+
+<script>
+// ===== EDIT THESE =====
+// WhatsApp number with country code, digits only (example: 919876543210)
+var WA_NUMBER = "91XXXXXXXXXX";
+
+// Jobs list. Replace the sample jobs with real ones, and remove sample:true.
+// type: "daily" or "monthly". skilled: true or false. phone: digits only, optional.
+var JOBS = [
+  { role:"दुकानासाठी मदतनीस", shop:"नमुना दुकान", area:"स्टेशन रोड", type:"monthly", skilled:false, phone:"", sample:true },
+  { role:"हेल्पर", shop:"नमुना हार्डवेअर", area:"बाजार पेठ", type:"daily", skilled:false, phone:"", sample:true },
+  { role:"इलेक्ट्रिशियन", shop:"नमुना इलेक्ट्रिकल्स", area:"जामनेर रोड", type:"monthly", skilled:true, phone:"", sample:true }
+];
+
+// Banners: edit, add or delete. icon is any emoji. cls: b1 | b2 | b3 | b4. msg: worker | work | ad
+var BANNERS = [
+  { icon:"🏪", cls:"b1", title:"दुकानात माणूस हवा?", text:"एका संदेशात काम टाका. बोदवडमधील कामगार थेट फोन करतील.", cta:"काम टाका", msg:"worker" },
+  { icon:"👷", cls:"b2", title:"काम शोधताय? मोफत.", text:"नाव आणि काम पाठवा. आम्ही दुकानदारांपर्यंत पोहोचवतो.", cta:"माझे नाव पाठवा", msg:"work" },
+  { icon:"🪔", cls:"b3", title:"दिवाळी आणि लग्नसराई", text:"तात्पुरत्या कामासाठी हेल्पर लगेच मिळवा.", cta:"आजच कळवा", msg:"worker" },
+  { icon:"📣", cls:"b4", title:"तुमची जाहिरात येथे", text:"बोदवडच्या दुकानांसाठी जाहिरातीची जागा.", cta:"चौकशी करा", msg:"ad" }
+];
+// ======================
+
+function wa(text){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text); }
+
+var MSG_WORK = "नमस्कार, मला काम हवे आहे.\nनाव:\nगाव/भाग:\nकोणते काम:";
+var MSG_WORKER = "नमस्कार, मला कामगार हवा आहे.\nदुकानाचे नाव:\nकाम:\nफोन:";
+var MSG_AD = "नमस्कार, मला चिंतानक्कोवर जाहिरात द्यायची आहे.\nदुकानाचे नाव:\nफोन:";
+
+document.getElementById("needWork").href = wa(MSG_WORK);
+document.getElementById("needWorker").href = wa(MSG_WORKER);
+document.querySelectorAll("[data-post]").forEach(function(a){ a.href = wa(MSG_WORKER); });
+
+function el(tag, cls, text){
+  var e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (text) e.textContent = text;
+  return e;
+}
+
+var list = document.getElementById("jobList");
+var empty = document.getElementById("empty");
+var filter = "all";
+
+function matches(j){
+  if (filter === "all") return true;
+  if (filter === "skilled") return !!j.skilled;
+  return j.type === filter;
+}
+
+function render(){
+  list.innerHTML = "";
+  var shown = JOBS.filter(matches);
+  empty.hidden = shown.length > 0;
+  shown.forEach(function(j){
+    var li = el("li", "job");
+    var ic = el("span", "ic emo", j.skilled ? "🔧" : "👷");
+    ic.setAttribute("aria-hidden", "true");
+    li.appendChild(ic);
+    var h = el("h3", "", j.role);
+    h.appendChild(el("span", "kind", j.type === "daily" ? "रोजंदारी" : "महिन्याचे काम"));
+    if (j.sample) h.appendChild(el("span", "tag", "नमुना"));
+    li.appendChild(h);
+    li.appendChild(el("p", "where", "📍 " + j.shop + " · " + j.area));
+    var acts = el("div", "acts");
+    if (j.phone) {
+      var c = el("a", "act", "कॉल करा");
+      c.href = "tel:+91" + j.phone;
+      acts.appendChild(c);
+    }
+    var w = el("a", "act act-wa", "व्हॉट्सॲप");
+    var to = j.phone ? "91" + j.phone : WA_NUMBER;
+    w.href = "https://wa.me/" + to + "?text=" + encodeURIComponent("नमस्कार, चिंतानक्कोवर “" + j.role + "” चे काम पाहिले. मला चौकशी करायची आहे.");
+    acts.appendChild(w);
+    li.appendChild(acts);
+    list.appendChild(li);
+  });
+}
+
+(function(){
+  var bnr = document.getElementById("bnr"), dots = document.getElementById("dots");
+  var n = BANNERS.length, cur = 0, timer = null;
+  if (!n) { bnr.parentNode.hidden = true; return; }
+  var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function step(){ return bnr.clientWidth + 12; }
+  function go(i){ cur = (i + n) % n; bnr.scrollTo({ left: cur * step(), behavior: reduce ? "auto" : "smooth" }); }
+  function stop(){ if (timer) { clearInterval(timer); timer = null; } }
+  function start(){ if (!reduce && n > 1 && !timer) timer = setInterval(function(){ go(cur + 1); }, 5500); }
+  BANNERS.forEach(function(b, i){
+    var s = el("div", "slide " + b.cls);
+    var left = el("div", "");
+    left.appendChild(el("h3", "", b.title));
+    left.appendChild(el("p", "", b.text));
+    var a = el("a", "go", b.cta);
+    a.href = wa(b.msg === "work" ? MSG_WORK : b.msg === "ad" ? MSG_AD : MSG_WORKER);
+    left.appendChild(a);
+    var ic = el("span", "big emo", b.icon);
+    ic.setAttribute("aria-hidden", "true");
+    s.appendChild(left); s.appendChild(ic);
+    bnr.appendChild(s);
+    var d = el("button", "dot"); d.type = "button";
+    d.setAttribute("aria-label", "सूचना " + (i + 1));
+    d.setAttribute("aria-current", i === 0 ? "true" : "false");
+    d.addEventListener("click", function(){ stop(); go(i); });
+    dots.appendChild(d);
+  });
+  bnr.addEventListener("scroll", function(){
+    var i = Math.round(bnr.scrollLeft / step());
+    if (i >= 0 && i < n) cur = i;
+    for (var k = 0; k < dots.children.length; k++) dots.children[k].setAttribute("aria-current", k === cur ? "true" : "false");
+  });
+  ["pointerdown", "focusin", "mouseenter"].forEach(function(ev){ bnr.addEventListener(ev, stop); });
+  bnr.addEventListener("mouseleave", start);
+  start();
+})();
+
+document.getElementById("sampleNote").hidden = !JOBS.some(function(j){ return j.sample; });
+
+document.getElementById("chips").addEventListener("click", function(e){
+  var b = e.target.closest(".chip");
+  if (!b) return;
+  filter = b.getAttribute("data-f");
+  document.querySelectorAll(".chip").forEach(function(c){
+    c.setAttribute("aria-pressed", c === b ? "true" : "false");
+  });
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
